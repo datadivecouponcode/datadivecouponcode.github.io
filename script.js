@@ -16,10 +16,8 @@ const faqs = [
   { question: "1. What is DataDive?", answer: "DataDive is an AI-powered research and optimization platform for Amazon FBA sellers. It combines keyword research, rank tracking, niche analysis, and AI-assisted listing creation in one dashboard, built on Jungle Scout and Keepa data." },
   { question: "2. How do I use the DataDive coupon code?", answer: "Click Show Coupon on this page to reveal the code, then click Get a Deal to go to DataDive's pricing page. Choose your plan, enter ALLCOUPON in the coupon field at checkout, and you'll get 10% off your first 6 months." },
   { question: "3. Does DataDive offer a free trial?", answer: "Yes, DataDive offers a 14-day free trial with full access to all features on the Starter plan. A payment method is required to start the trial, and your card will be charged if you don't cancel before the 14 days end. " },
-  { question: "Can I combine multiple Helium 10 coupons?", answer: "Helium 10 typically allows only one coupon code per purchase. We recommend using the highest-value coupon that applies to your chosen plan for maximum savings." },
-  { question: "Which Helium 10 plan is best for beginners?", answer: "Based on our experience advising thousands of new sellers, we recommend starting with the Platinum plan. It includes all the essential tools like Black Box, Cerebro, and Magnet that you'll need for product and keyword research." },
-  { question: "Is there a Helium 10 free trial available?", answer: "Yes! Helium 10 offers a free plan with limited features that lets you test the platform. Additionally, using our exclusive coupon codes, you can get up to 50% off your first month on paid plans." },
-  { question: "How does Helium 10 compare to Jungle Scout?", answer: "Both are excellent tools, but based on our hands-on testing, Helium 10 offers more comprehensive features at a similar price point. Helium 10's Cerebro and Magnet tools are particularly strong for keyword research." }
+  { question: "4. Does the ALLCOUPON discount work with annual billing?", answer: "Yes. The 10% discount stacks on top of the annual billing rate, which is already lower than paying month-to-month, so annual subscribers save the most overall." },
+  { question: "5. Do I need an Amazon Seller account to use DataDive?", answer: "No. DataDive lets you research, analyze, and validate products before you ever launch or open a Seller Central account, which makes it useful during the pre-launch research phase too." },
 ];
 
 // Initialize on DOM load
