@@ -250,6 +250,7 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Space Grotesk', system-ui, sans-serif; }
 .comparison-table td { padding: 1rem; text-align: center; border-bottom: 1px solid var(--border); }
 .comparison-table td:first-child { text-align: left; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; }
 .comparison-table td:first-child svg { width: 16px; height: 16px; stroke: var(--h10-orange); }
+.comparison-table sup { font-size: 0.65em; }
 .comparison-table .highlighted-row { background: rgba(37, 99, 235, 0.05); }
 .comparison-table .yes { color: var(--h10-green); font-weight: 600; }
 .comparison-table .no { color: #ef4444; }
@@ -345,5 +346,3 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Space Grotesk', system-ui, sans-serif; }
 
 .step-image { margin-top: 0.75rem; border-radius: 0.75rem; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
 .step-image img { width: 100%; height: auto; display: block; }
-
-
