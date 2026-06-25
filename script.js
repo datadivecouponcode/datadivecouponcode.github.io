@@ -14,7 +14,7 @@ const coupons = [
 // FAQ Data
 const faqs = [
   { question: "1. What is DataDive?", answer: "DataDive is an AI-powered research and optimization platform for Amazon FBA sellers. It combines keyword research, rank tracking, niche analysis, and AI-assisted listing creation in one dashboard, built on Jungle Scout and Keepa data." },
-  { question: "2. How do I use the DataDive coupon code?", answer: "Click "Show Coupon" on this page to reveal the code, then click "Get a Deal" to go to DataDive's pricing page. Choose your plan, enter ALLCOUPON in the coupon field at checkout, and you'll get 10% off your first 6 months." },
+  { question: "2. How do I use the DataDive coupon code?", answer: "Click Show Coupon on this page to reveal the code, then click Get a Deal to go to DataDive's pricing page. Choose your plan, enter ALLCOUPON in the coupon field at checkout, and you'll get 10% off your first 6 months." },
   { question: "Are these Helium 10 coupons verified and legitimate?", answer: "Yes! All coupon codes on this page are verified daily by our team. We have a direct partnership with Helium 10 as an authorized affiliate, which means our codes come directly from the source." },
   { question: "Can I combine multiple Helium 10 coupons?", answer: "Helium 10 typically allows only one coupon code per purchase. We recommend using the highest-value coupon that applies to your chosen plan for maximum savings." },
   { question: "Which Helium 10 plan is best for beginners?", answer: "Based on our experience advising thousands of new sellers, we recommend starting with the Platinum plan. It includes all the essential tools like Black Box, Cerebro, and Magnet that you'll need for product and keyword research." },
