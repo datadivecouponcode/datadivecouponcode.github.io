@@ -4,20 +4,22 @@ const AFFILIATE_URL = "https://softreview.net/refer/datadive";
 // Coupon Data
 const coupons = [
   { code: "ALLCOUPON", discount: "10% OFF", description: "Get 10% Off for 6 Months Limited Time Offer", type: "exclusive", initialDays: 3 },
-  { code: "NO CODE REQUIRED", discount: "10% OFF", description: "Get 14 Day Free Trail", type: "exclusive", initialDays: 3 },
-  { code: "ALLCOUPON", discount: "10% OFF", description: "10% off forever on all monthly and annual subscriptions", type: "normal", initialDays: 5 },
-  { code: "ALLCOUPON", discount: "25% OFF", description: "Special discount for new Amazon sellers - Starter plan", type: "normal", initialDays: 5 },
-  { code: "ALLCOUPONCODES10", discount: "20% OFF", description: "Exclusive 20% discount on Diamond plan annual subscription", type: "unverified", initialDays: 5 },
-  { code: "ALLCOUPONCODES10", discount: "40% OFF", description: "40% off on Elite plan for the first 12 months", type: "unverified", initialDays: 5 }
+  { code: "NO CODE REQUIRED", discount: "14-DAY FREE TRIAL", description: "Get 14 Day Free Trial", type: "exclusive", isDeal: true, initialDays: 3 },
+  { code: "ALLCOUPON", discount: "10% OFF", description: "10% off for 6 months on all monthly and annual subscriptions", type: "normal", initialDays: 5 },
+  { code: "ALLCOUPON", discount: "10% OFF", description: "Special discount for new Amazon sellers - Starter plan", type: "normal", initialDays: 5 },
+  { code: "ALLCOUPONCODES10", discount: "20% OFF", description: "Exclusive 20% discount on Enterprise plan annual subscription", type: "unverified", initialDays: 5 },
+  { code: "ALLCOUPONCODES10", discount: "40% OFF", description: "40% off on Standard plan for the first 12 months", type: "unverified", initialDays: 5 }
 ];
 
 // FAQ Data
 const faqs = [
-  { question: "1. What is DataDive?", answer: "DataDive is an AI-powered research and optimization platform for Amazon FBA sellers. It combines keyword research, rank tracking, niche analysis, and AI-assisted listing creation in one dashboard, built on Jungle Scout and Keepa data." },
-  { question: "2. How do I use the DataDive coupon code?", answer: "Click Show Coupon on this page to reveal the code, then click Get a Deal to go to DataDive's pricing page. Choose your plan, enter ALLCOUPON in the coupon field at checkout, and you'll get 10% off your first 6 months." },
-  { question: "3. Does DataDive offer a free trial?", answer: "Yes, DataDive offers a 14-day free trial with full access to all features on the Starter plan. A payment method is required to start the trial, and your card will be charged if you don't cancel before the 14 days end. " },
-  { question: "4. Does the ALLCOUPON discount work with annual billing?", answer: "Yes. The 10% discount stacks on top of the annual billing rate, which is already lower than paying month-to-month, so annual subscribers save the most overall." },
-  { question: "5. Do I need an Amazon Seller account to use DataDive?", answer: "No. DataDive lets you research, analyze, and validate products before you ever launch or open a Seller Central account, which makes it useful during the pre-launch research phase too." },
+  { question: "1. What is the DataDive coupon code?", answer: "The DataDive coupon code is ALLCOUPON. It gives you 10% off for the first six months under the current offer." },
+  { question: "2. How much can I save with the DataDive coupon code?", answer: "The current offer gives you 10% off for the first six months. The exact savings depend on the plan you choose." },
+  { question: "3. Does DataDive offer a free trial?", answer: "Yes. DataDive currently offers a 14-day complimentary free trial." },
+  { question: "4. How much does DataDive cost?", answer: "DataDive currently starts at $39 per month for the Starter plan. The Standard plan costs $149 per month, while Enterprise costs $490 per month." },
+  { question: "5. Is DataDive available with annual billing?", answer: "Yes. DataDive currently lists annual monthly-equivalent prices of $32 for Starter, $124 for Standard, and $408 for Enterprise. It also advertises two months free with yearly billing." },
+  { question: "6. Which DataDive plan should I choose?", answer: "If you are a new or smaller Amazon seller, Starter is the easiest plan to begin with. If you need higher research and keyword tracking limits, Standard may be a better fit. Enterprise is aimed at larger brands, private-label businesses, aggregators, and teams with much higher usage requirements." },
+  { question: "7. Is DataDive worth it?", answer: "DataDive can be worth it if you actively sell on Amazon and need product research, keyword research, competitor analysis, listing tools, rank tracking, and PPC features. If you only need basic research occasionally, the subscription may not be worth the cost." }
 ];
 
 // Initialize on DOM load
@@ -106,16 +108,25 @@ function renderCoupons() {
 }
 
 function createCouponCard(coupon, index) {
-  const maskedCode = '••••••' + coupon.code.slice(-2);
   const isExclusive = coupon.type === 'exclusive';
   const isUnverified = coupon.type === 'unverified';
+  const isDeal = coupon.isDeal || coupon.code === 'NO CODE REQUIRED';
   
+  const maskedCode = isDeal ? 'NO CODE REQUIRED' : ('••••••' + coupon.code.slice(-2));
   const iconClass = isExclusive ? 'coupon-icon-orange' : (isUnverified ? 'coupon-icon-gray' : 'coupon-icon-green');
-  const typeLabel = isExclusive ? 'Exclusive Code' : (isUnverified ? 'Unverified Code' : 'Verified Code');
+  const typeLabel = isDeal ? 'Exclusive Deal' : (isExclusive ? 'Exclusive Code' : (isUnverified ? 'Unverified Code' : 'Verified Code'));
   const iconSvg = isExclusive ? '<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>' : 
     (isUnverified ? '<circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>' : 
     '<path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>');
   
+  const rightHtml = isDeal ? `
+    <div class="coupon-code-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><code class="coupon-code" style="font-size:0.95rem; font-family: inherit; font-weight:700;">NO CODE REQUIRED</code></div>
+    <button class="btn-show-coupon btn-green" data-code="${coupon.code}" data-is-deal="true" style="margin-top:0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Get Deal</button>
+  ` : `
+    <div class="coupon-code-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg><code class="coupon-code">${maskedCode}</code></div>
+    <button class="btn-show-coupon" data-code="${coupon.code}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg> Show Coupon <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></button>
+  `;
+
   const card = document.createElement('article');
   card.className = 'coupon-card';
   card.innerHTML = `
@@ -136,15 +147,14 @@ function createCouponCard(coupon, index) {
           <div class="coupon-timer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span id="timer-${index}">00:00:00</span></div>
         </div>
         <div class="coupon-right">
-          <div class="coupon-code-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg><code class="coupon-code">${maskedCode}</code></div>
-          <button class="btn-show-coupon" data-code="${coupon.code}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg> Show Coupon <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></button>
+          ${rightHtml}
         </div>
       </div>
     </div>
   `;
   
   // Timer for this coupon
-  const timerKey = `coupon_timer_${coupon.code}`;
+  const timerKey = `coupon_timer_${coupon.code.replace(/\s+/g, '_')}`;
   let endTime = getOrCreateEndTime(timerKey, coupon.initialDays);
   const timerEl = card.querySelector(`#timer-${index}`);
   
@@ -163,12 +173,17 @@ function createCouponCard(coupon, index) {
   updateTimer();
   setInterval(updateTimer, 1000);
   
-  // Show coupon button
+  // Show coupon / Get deal button click handler
   card.querySelector('.btn-show-coupon').addEventListener('click', function() {
-    const code = this.dataset.code;
-    localStorage.setItem('pendingCoupon', code);
-    window.open(window.location.origin + window.location.pathname + '?popup=true', '_blank');
-    setTimeout(() => { window.location.href = AFFILIATE_URL; }, 200);
+    const isDeal = this.dataset.isDeal === 'true';
+    if (isDeal) {
+      window.open(AFFILIATE_URL, '_blank');
+    } else {
+      const code = this.dataset.code;
+      localStorage.setItem('pendingCoupon', code);
+      window.open(window.location.origin + window.location.pathname + '?popup=true', '_blank');
+      setTimeout(() => { window.location.href = AFFILIATE_URL; }, 200);
+    }
   });
   
   return card;
