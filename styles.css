@@ -256,6 +256,11 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Space Grotesk', system-ui, sans-serif; }
 .comparison-table .no { color: #ef4444; }
 .comparison-table .check { color: var(--h10-green); }
 .comparison-table .cross { color: #ef4444; }
+.tool-table-link { display: inline-flex; align-items: center; gap: 0.35rem; color: var(--primary); text-decoration: none; font-weight: 600; transition: color 0.2s; }
+.tool-table-link:hover { color: var(--h10-orange); text-decoration: underline; }
+.tool-table-link svg { width: 14px; height: 14px; stroke: currentColor; flex-shrink: 0; }
+.tool-table-link-header { color: #ffffff; }
+.tool-table-link-header:hover { color: var(--h10-orange); }
 .table-note { text-align: center; font-size: 0.875rem; color: var(--muted); margin-top: 1rem; }
 .summary-box { background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(37, 99, 235, 0.1)); border: 1px solid rgba(37, 99, 235, 0.2); border-radius: 1rem; padding: 1.5rem; margin-top: 3rem; }
 .summary-box h4 { font-size: 1.25rem; margin-bottom: 0.75rem; }
